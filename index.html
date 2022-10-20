@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Js-animation-website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  </head>
+  <body>
+    <header>
+      <img src="img/s10.jpg" />
+
+      <ul>
+        <li><a href="https://shakerbca.github.io/BSF-Portfolio-js/" target="_blank" class="active"><i class="uil uil-bitcoin-sign"></i></a></li>
+        <li><a href="https://replit.com/@shakerfarooqui" target="_blank"><i class="uil uil-gitlab"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/shaker-farooqui-6a28251b0/" target="_blank"><i class="uil uil-linkedin-alt"></i></a></li>
+        <li><a href="https://github.com/shakerbca?tab=overview&from=2022-07-01&to=2022-07-31" target="_blank"><i class="uil uil-github"></i></a></li>
+      </ul>
+    </header>
+    <section>
+      <div class="content">
+        <h2>level up Your Website with<b>Anime.js</b></h2>
+        <p>
+            I am a front-end web developer. I can provide clean code and pixel
+            perfect design. I also make the website more & more interactive with
+            web animations.I can provide clean code and pixel perfect design. I
+            also make the website more & more interactive with web animations.A
+            responsive design makes your website accessible to all users,
+            regardless of their device.
+        </p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+      <div class="container"></div>
+    </section>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+      integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      let container = document.querySelector(".container");
+      for (let i = 1; i <= 100; i++) {
+        let dot = document.createElement("div");
+        dot.classList.add("element");
+        container.appendChild(dot);
+      }
+
+      let dotAll = document.querySelectorAll(".element");
+      let animation = anime.timeline({
+        targets: dotAll,
+        easing: "easeInOutExpo",
+        loop: true,
+        delay: anime.stagger(100, { grid: [10, 10], from: "center" }),
+      });
+      animation
+        .add({
+          rotateZ: 180,
+          translateY: anime.stagger(-20, {
+            grid: [10, 10],
+            from: "center",
+            axis: "y",
+          }),
+          translateX: anime.stagger(-20, {
+            grid: [10, 10],
+            from: "center",
+            axis: "x",
+          }),
+          opacity: 1,
+        })
+        .add({
+          borderRadius: 50,
+        })
+        .add({
+          scale: 0.2,
+          opacity: 0.2,
+        });
+      animation
+        .add({
+          rotateZ: 180,
+          translateY: anime.stagger(0, {
+            grid: [10, 10],
+            from: "center",
+            axis: "y",
+          }),
+          translateX: anime.stagger(0, {
+            grid: [10, 10],
+            from: "center",
+            axis: "x",
+          }),
+          opacity: 1,
+        })
+        .add({
+          scale: 1,
+          borderRadius: 0,
+        })
+        .add({
+          rotateZ: -90,
+        });
+    </script>
+  </body>
+</html>
